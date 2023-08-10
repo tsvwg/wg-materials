@@ -145,3 +145,5 @@ Gorry: I interpret this as we do not have a complete spec for doing this, to mak
 Martin Duke: That was me, and I wanted to see work on this topic in the future.
 
 Gorry: Please let the WG know your thoughts and try to complete this work. 
+
+End of Session 1
