@@ -74,8 +74,8 @@ draft-kaippallimalil-tsvwg-media-hdr-wireless
   
     * Tom Herbert: Clarifying question: what topic?
     * Gorry: Explicit signal infomation to help devices process packets in the network.
-    * Bob Briscoe: does this include not talking to the network at all? Yes.
-    * -: Could this ne on other layers?
+    * Bob Briscoe: Does this include not talking to the network at all? Yes.
+    * -: Could this be on other layers?
     * 27 noted interest.
     * Gorry: It sounds like this will come up at the next IETF meeting. Use the list to discuss.
 
@@ -282,7 +282,7 @@ Chairs: We plan to schedule the interim that was mentioned, and this would be a 
 * Michael : The draft says two conditions must be fulfilled which includes alternate methods and no middle boxes which ensure non zero checksum. Thus, this is not applicable to IPv6. I can add a sentence.
 
 * Chairs: How many people read this document (rev-01) or (rev-02) ?
-           Read : 7, Not Read : 24
+           Have read : 7, Have not Read : 24
 
 * Chairs: Some people have read, and we have a set of reviewers.
   
@@ -295,61 +295,52 @@ Please read the document and comment on list. The chairs think this is in a good
 
 draft-tuexen-tsvwg-rfc6951-bis-03
 
-* NO 
+This is an individual draft, Michael plans to address any new comments, but has no pending issues.
+
+No questions.
 
 ## 8. ECN & L4S Drafts
    
 ### 8.1 Jason Livingood: L4S Experimental Deployment
-draft-livingood-low-latency-deployment
 
-    draft update
-    update on experimental deployment such as ECN marking problem
-    deployment in virtual CMTS (vCMTS)
-    preparing test assignments for diagnostics
-    read out test results in IETF118
-    No discussion on WGLC
+draft-livingood-low-latency-deployment (Individual submission to Independent Stream Editor).
+
+The draft is mainly ready. This described an update on experimental deployment in virtual CMTS (vCMTS) such as ECN marking problems.
+The author is looking for whether this should proceed as an ISE or as a WG draft, and is looking for feedback from TSVWG on which way to proceed. 
+
+* Chair : Please continue discussion on the mailing list. The Chairs plan to discuss the document status with our AD, please renmind us.
 
 ##   8.2 Greg White: L4S Operational Guidance on Coexistence with Classic ECN during L4S Deployment
 
 draft-ietf-tsvwg-l4sops-05
 
-    scope and status
-        adresses possible rate-imbalance in shared- queue RFC3168 bottlenecks
-        living document to capture experiences for initial L4S deployment
-        draft 05 changes
+Documents will be updated.
 
-* Tim Chown : Measurement and impact is ongoing in other groups. What are your thoughts on general guidance on measuring impact such as responsiveness such as latency?
-* Greg : Experiments were done in interops and have a straw-man test plan for lab test. But could be used in field test. Open are* for further L4S deployment in equipment using CE marking and CC.
-  Cchair : Tools avaiable for testing should be mentioned. Continue on mailing list.
+* Tim Chown : Measurement of the impact is ongoing in other groups (e.g. ippm). What are your thoughts on general guidance on measuring impact such as responsiveness such as latency?
+* Greg : Experiments were done in the interops and have developed a straw-man test plan for lab testing. Some could be used in field testing. This is an open area for further L4S work as equipment using CE marking and CC, it is important there are good ways of CE-marking; and knowing the CC performs correctlty.
+* Tim : Many games come with a responsiveness number.
+* Greg: We also have interops, and the next will be at cablelabs in september and then at the IETF meeting in Prague.
 
-    L4S interops activities
-        invitation to join
+* Chair : Please continue discussion on the mailing list, and please also consider joining the L4S inerop at the next IETF meeting.
 
 ## 8.3 Greg White : Non Queue Building (NQB) Per Hop Behavior
+
 draft-ietf-tsvwg-nqb-19
 
-    status draft 17
-    screen shot of many issues
-    post WGLC comment
-    draft 18 highlights
-    draft 19 highlights
-    status of issues
-    Next steps
+A WGLC was made on draft -14, and there have been updates based on comments linked to 13 issues, and believes all of these are addressed in the new revision. There was a new queation relating the UP in a 802.11 context, which is expected to be closed soon. The plan is to submit as PS by Sept 2023.
 
-* Gorry : appreciate support for RFC 8325 Mapping Diffserv to IEEE 802.11
-* Greg : _
+* Gorry : Thanks for responding to my issues. If other people raised issued, please check the new text. I appreciate trying to align with RFC 8325 Mapping Diffserv to IEEE 802.11. When will the next revision be addressed?
+* Greg : I hope this will be ready in 2 weeks.
 
-    Hum if if you have read this or recent version of this daft.
-    Low hum
+* Chairs: Please hum if if you have read this (or a recent version of the draft).
+    Read: Some.
 
-    Hum if this document is not ready to be received ie not start a working group last call
-    No hum
-    (remote participants could unfortunately not participate in the hums)
+* Chairs: Please hum if this document is not ready to proceed (i.e. ought not start a working group last call).
+  Has concerns with WGLC : Few/none. (Note: remote participants could unfortunately not participate in the hums, and should ask to have their position noted if needed).
+        * Mikhel Abrahamsson : Example configs to implement this in access network are needed, this would be of interest.
+        * Sebastien Moeller (relayed from chat by remote participant) : This should not be published.
 
-Mikhel Abrahamsson : Example configs to implement this in common network are needed.
-Martin Duke : This should not be published (relayed from chat by remote participant, not Martin’s own position)
-
-    To be put on agend* in IETF118
+The purpose of a WGLC is to gather review and indicate support or not, and we therefore plan to start a  WGLC before the next IETF meeting and report on this at TSVWG for IETF-118.
 
 ## 9. Individual Drafts
 
@@ -367,14 +358,14 @@ draft-reddy-tsvwg-explcit-signal-01
 Matt Joras: Secure information exchange is presented before but it was not accpeted. BoF was the dispatch feedback.
 TSV accepts
 
-Tom Herbert: Already discussed in one to one wireless medi* header. not architectural correct. contradicts core architecture. Practical issues with middleboxes. IPv6 extension headers has been seen before. Hop by hop processing draft is also not applicable.
-Network signalling from host is * common problem and should find * common generic solution. Maybe an INT are* subject.
+Tom Herbert: Already discussed in one to one wireless media header. not architectural correct. contradicts core architecture. Practical issues with middleboxes. IPv6 extension headers has been seen before. Hop by hop processing draft is also not applicable.
+Network signalling from host is * common problem and should find a common generic solution. Maybe an INT area subject.
 
 Chair : QoS aspects fall in this group such as queues. INT are* defines encapsulation.
 
-Christian : This is not * UDP option function which is end to end and supposed to be used by transport and not be intermediries. * new mechanism should be diff and not be part of UDP options.
+Christian : This is not a UDP option function which is end to end and supposed to be used by transport and not be intermediries. A new mechanism should be diff and not be part of UDP options.
 
-Tianji Jiang : I like this ide* as we have * real case. Medi* header IP draft could be used. 3GPP could be mapped to this header.
+Tianji Jiang : I like this ide* as we have a real case. Media header IP draft could be used. 3GPP could be mapped to this header.
 
 * C.Heard : agree with earlier comments from Tom and Christian. Oauth applicability. Networking is modifying thiese option in transit ?
 * : no modification of tags in transit.
@@ -383,7 +374,7 @@ Kazuho Oku : closed information should have better treatment. Packets should not
 
 Tim Chown : Common requirements for marking such as hop by hop.
 
-Marco Munizaga: Extension headers seem to be useful. Should focus on better support rather than * new thing.
+Marco Munizaga: Extension headers seem to be useful. Should focus on better support rather than a new thing.
 
 Chair : intention for next meeting
 * : particiapte in BoF for refinement.
