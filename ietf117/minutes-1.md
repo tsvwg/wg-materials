@@ -19,7 +19,7 @@ Drafts beyond WGLC:
 * draft-ietf-tsvwg-ecn-encap-guidelines (Writeup Needed) Document Shepherd: David
 * draft-ietf-tsvwg-rfc6040update-shim (Writeup Needed) Document Shepherd: David
 
-Both are expected to progress shortly after this meeting and * writeup will be completed,
+Both are expected to progress shortly after this meeting and a writeup will be completed,
   
 Chairs: Status updates on other WG drafts.
 
@@ -30,7 +30,7 @@ Notices and Related Drafts
 Liaison notices, if any:
 * 3GPP Liaison Request - (SCTP & DTLS) Gorry
 * https://datatracker.ietf.org/liaison/1847/
-* GSM* Liaison Request - (Multi-Path DCCP) Gorry
+* GSMA Liaison Request - (Multi-Path DCCP) Gorry
 
    Chairs: Announcements and Heads-Up
 
@@ -38,24 +38,24 @@ Liaison notices, if any:
 
 * Marten: Chairs convinced the WG should embrace GitHub. github.com/tsvwg
     * Offer for editors to move drafts to the tsvwg GitHub org.
-    * That org will be used for issue tracking whether or not * draft is managed using GitHub.
+    * That org will be used for issue tracking whether or not a draft is managed using GitHub.
     * Are there any objections?
-        * Magnus Westerlund: No objection, this is * great idea.
+        * Magnus Westerlund: No objection, this is a great idea.
         * Bob Briscoe: If GitHub was ever compromised, the world as we know it will end. TSVWG drafts and issues will be the least of our problems!
-        * Spencer Dawkins: I am just observing: * lot of objections in other WG are * forced march to manage draft. I would expect very few objections to the style we propose here,
+        * Spencer Dawkins: I a observe a lot of objections in other WG are a forced march to manage draft. I would expect very few objections to the style we propose here,
     * Gorry: The way I see this working:
         * We discuss drafts on the mailing list as normal.
-        * The chairs or editors create * GitHub Issue, and use that to track the issue.
+        * The chairs or editors create a GitHub Issue, and use that to track the issue.
 
 ## 3. Individual Drafts
 
-### 3.1 John Kaippallimalil: Metadat* for * Medi* Packet
+### 3.1 John Kaippallimalil: Metadata for a Media Packet
 
 draft-kaippallimalil-tsvwg-media-hdr-wireless
        
 * https://datatracker.ietf.org/meeting/117/materials/slides-117-tsvwg-31-metadata-for-a-media-packet
 
-* Gorry (as an individual): You do not include IPv6 Destination Options, rather than hop-by-hop options. If the metadat* is not modified on the path and passed end-to-end, have you any thoughts on whether you could alternatively use Dest Opt?
+* Gorry (as an individual): You do not include IPv6 Destination Options, rather than hop-by-hop options. If the metadata is not modified on the path and passed end-to-end, have you any thoughts on whether you could alternatively use Dest Opt?
     * John: We breifly looked at Hop-by-Hop Options, but did not look at Dest Opt. 
 * Gorry: As I understand, the Flow Label is immutable for a flow - it defines what a flow is, if you change that, then you would also make a different flow that is independently forwarded.
     * John: From the wireless node, that could be ideal - but from the perspective of the network (or firewall) this is an issue.
@@ -65,12 +65,12 @@ draft-kaippallimalil-tsvwg-media-hdr-wireless
 * Matt Mathis: There seems to be a huge opportunity and there are lots of allegators. Good luck.
 
 * Magnus Westerlund: Another option exists when yoy are addressing a single node on the path. You could explicitly talk to this. 
-* John: I think you refer to using the control plane to signal dat* for the user plane. I think the preference is to use the user plane.
+* John: I think you refer to using the control plane to signal data for the user plane. I think the preference is to use the user plane.
 * Magnus: I think we could use the user plane by addressing the node and linkage it to the data, using a method similar to that being proposed in the SADCDN. This might be a suitable solution also for this?
 
 * Gorry: How many have read this draft (or a recent version)?
-    * 14 hands raised.
-* Gorry: How many people are interested in work in this space? (Not necessarily using this draft, but interested in this topic as an are* of future work).
+    * Have read: 14 hands raised.
+* Gorry: How many people are interested in work in this space? (Not necessarily using this draft, but interested in this topic as an area of future work).
   
     * Tom Herbert: Clarifying question: what topic?
     * Gorry: Explicit signal infomation to help devices process packets in the network.
@@ -84,7 +84,7 @@ John (final comments): We are not thinking of one  solution, but would like a ti
 ## 4. Transport: 
 
 ### 4.1 UDP Options (15 mins)
-#### 4.1.1 Joe Touch*: UDP Options
+#### 4.1.1 Joe Touch : UDP Options
 draft-ietf-tsvwg-udp-options 
    	  - Security Options,  Post WGLC Issues
       
@@ -106,7 +106,7 @@ https://datatracker.ietf.org/meeting/117/materials/slides-117-tsvwg-sessb-412-dp
 * Christian Huitema: I think there should a 6th tenet that UDP options should never be attached to UDP encrypted protocols.
         * Gorry: is there already text in the security considerations that warns of the care needed when the datagram is encrypted?
         * Christian: There was text proposed, but this is not in the current version of the draft. We dio not want tro add information to UDP packets.
-        * Mirj* : I agree at a higher level, but does it make it stateful.
+        * Mirja : I agree at a higher level, but does it make it stateful.
     * Christian: No, if any router knows the packet is QUIC then it would then drop packets with UDP Options.
     * Mirja: That's even worse, as a security vulnerability: IF an attacker adds UDP Options that would make sure that somebody drops it. I am unsure how it helps.
     * Christian: This is abuse. We should create a blocking point to deployment, to prevent the abuse being engrained in the network and hard to remove.
@@ -118,8 +118,8 @@ https://datatracker.ietf.org/meeting/117/materials/slides-117-tsvwg-sessb-412-dp
     * Martin Duke (individual): There are two things going on here. Shoiuld we say "don't do this", and should we  also require nodes to enforce that statement. I am little skeptical of the second, I think we should say MUST NOT. 
     * Igor Lubashev: A network could be made to remove the option, if you make it choose that, and the receiver endpoint will not know the option was ever there, so it would not drop anything.
     * Christian: Networks can attach data. If they can remove it, we are in a better place than if they don't. That is better than building an end-to-end communications channel. If you add any clear text to UDP you increase the attack surface. It's an additional weakness that you attach to the protocol. We should not deploy in a secure protocol.
-    * Mike Heard: The attack surface already exists. Teh surplus are* can already be used, it has existed since UDP was created. There is no new threat.
-    * Christian: True, you can add dat* at the tail of a packet. But now you ask that the endpoint has to process it.
+    * Mike Heard: The attack surface already exists. The surplus area can already be used, it has existed since UDP was created. There is no new threat.
+    * Christian: True, you can add data at the tail of a packet. But now you ask that the endpoint has to process it.
     * Tom Herbert: If we deploy UDP Options and there's ever a DOS attack because of them, there is a risk of network providers dropping all packets with UDP Options. The risk is high for a new protocol that is yet to prove its usefulness and will be cut by operators.
 
 Slide: Basic Three Issues from IETF 116
@@ -151,13 +151,13 @@ End of Session 1
 
 Thursday, 27 July 2023, 9:00 AM PST
 
-Chairs - Altanai B
+Chairs - Gorry Fairhurst and Martin Seeman
 
-Scribes - Marco Munizag* and Spencer Dawkins
+Scribes - Altanai B
 
 ## 5. Agend* recap and Notices 
 
-The chairs began by reviewing the Notewell and talked briefly about the agend* for the TSVWG working group.
+The chairs began by reviewing the Notewell and talked briefly about the agenda for the TSVWG working group.
 
 Please look at the other individual drafts and discuss on the list.
 
@@ -173,16 +173,16 @@ Nicolas Kuhn, Stephan Emile, Gorry Fairhurst, Christian Huitema
         Gain in RTTs vs Transfer Size
         Pacing during Unvalidated Phase is Needed, permitted during the Reconaisance Phase
 
-* Martin Duke: isd the 4xRTT improvement relative to a jump to the BDP or to doing nothing.
+* Martin Duke: is the 4xRTT improvement relative to a jump to the BDP or to doing nothing.
 * Gorry: It is relative to slow start, if you jump to the BDP you can win or loose, depending on whether it proved safe to do this.
   
-* Martin: There is more work. The cwnd resumption is communication from the sender and communictae to itself. The naive way is to cache the BDP at some random time on the sawtooth, burt this is onlty a part of the problem. When do you cache the cwnd?
+* Martin: There is more work: The cwnd resumption is communication from the sender and communicate to itself. The naive way is to cache the BDP at some random time on the sawtooth, burt this is onlty a part of the problem. When do you cache the cwnd?
 * Gorry: That'a na Elephant in the Room I was avoiding, because it is work to come: Our draft talks about this as the observation phase, this needs more work, please help.
 * Christian: If you look at a random time, you do get a random result. We should add some guidance to this draft. What is done in the PicoQUIC implemenation is that PicoQUIC waits for the slow start to complete, and then the connection to stabilise and then saves the BDP and RTT. That's one method, there may be others.
 * Gorry: Quite so. It also can be very wrong if you measure flight size at the end of the connection, where the packets in flight can be near zero.
 
 * Matt Mathis : Is this all with QUIC. Did you look at TCP? have you dealt with the receiver window (rwnd) problem?
-* Gorry: Yes, thsi is imporrtant, more later.
+* Gorry: Yes, this is important, more later.
 * Kazuho Oku: I understand the validation phase (reconaissance) is needed for TCP. Why is the Reconnaissance Phase needed in QUIC, because there is accurate ACK information?
 * Gorry: The Reconnaissance Phase is primarily (i) to not jump immediately if path changes and (ii) confirm the path is teh same - that needs multiple RTT samples. Determine its not congested and RTT is same before the jump. We should discuss how this is done for QUIC.
 
@@ -215,7 +215,7 @@ draft-ietf-tsvwg-multipath-dccp-10
         Similarly the key exchnage procedure could be updated after review comments.
 
 * Gorry (individual) : I like this approach, it is a good call to do this, if we do not need to do this. Is it simmilar to MP QUIC?
-* Markus : Yes I think they use a CID, the basic idea is same.
+* Markus : Yes. I think they use a CID, the basic idea is same.
 * Gorry : Please confirm with someone to check if this new part is similar to MP-QUIC.
 
 * Chairs : How long do you need to resolve the pending issues?
@@ -250,7 +250,7 @@ IPR declarations for various options.
    * Magnus : These come from the layers built on the 3GPP stack that generates these messages.
    * Hannes  : I always concerned when requirements are generated in one organisation and then passed-on to another and the same actors are in both parts of the process. I was expecting more description about why this is needed.
    * Magnus : The messages need to be more than 16 KB. The more UEs in a cell, the larger the message. This is a real problem. Individual message could grow rather than theoritical maximum message size. ( check with speaker later )
-   * Michael Tuxen : Can we get some practical limts, for what we need to deal with. For instance, the need in Diameter comes from a 24 bit len.
+   * Michael Tuxen : Can we get some practical limts, for what we need to deal with. For instance, the need in Diameter comes from a 24 bit length.
    * Hannes : We could argue that DTLS 1.3 is a modern protocol, and we do not need this rekey.
    * Magnus : We need long-lived sessions, or thus will need to tear down and restart a DF handhake. This is different.
    * Hannes : Some industrial IoT applications are also long-lived. I am suspcious whether the requirements came first or the solution?
@@ -265,8 +265,8 @@ IPR declarations for various options.
 
 * Michael : We have for many years defined socket API recommendations in the RFC. There is a way to do what is proposed by specifying the API. We have not done this for DTLS, but we could add an informative API.
    * Magnus : I agree. This requires draining at the end of the epoch.
-   * Michael: You need to drain, unless you keep the keys from the previous epoch.
-   * Magnus: Yes, and this is possible.
+   * Michael : You need to drain, unless you keep the keys from the previous epoch.
+   * Magnus : Yes, and this is possible.
 
 The conclusion is we need to find a way forward: We have talked to the chairs and expect we could make progress using a WG interim meeting on 19th September 2023 (16:00 CET). Before that, the Chairs plan to send a liaison statement to 3GPP SA3 and RAN3 toi inform about this meeting and ask for clarification.
 
@@ -281,12 +281,12 @@ Chairs: We plan to schedule the interim that was mentioned, and this would be a 
 * Gorry (individual) : How does this relate to IPv6 requirements? There are additional requirnemtns from IPv6 relating to UDP checksums and these ought to apply. We should be clear about the usage of the transport checksum with IPv6.
 * Michael : The draft says two conditions must be fulfilled which includes alternate methods and no middle boxes which ensure non zero checksum. Thus, this is not applicable to IPv6. I can add a sentence.
 
-* Chairs: How many people read this document (rev-01) or (rev-02) ?
+* Chairs : How many people read this document (rev-01) or (rev-02) ?
            Have read : 7, Have not Read : 24
 
-* Chairs: Some people have read, and we have a set of reviewers.
+* Chairs : Some people have read, and we have a set of reviewers.
   
-* Chairs: Please now hum if you think the next revision is ready for a Working Group Last Call.
+* Chairs : Please now hum if you think the next revision is ready for a Working Group Last Call.
            Support and ready: Some, Would not support WGLC (or major items to address): few/none.
 
 Please read the document and comment on list. The chairs think this is in a good position for a new revision, and we plan to start a WGLC before the next IETF meeting.
@@ -308,7 +308,7 @@ draft-livingood-low-latency-deployment (Individual submission to Independent Str
 The draft is mainly ready. This described an update on experimental deployment in virtual CMTS (vCMTS) such as ECN marking problems.
 The author is looking for whether this should proceed as an ISE or as a WG draft, and is looking for feedback from TSVWG on which way to proceed. 
 
-* Chair : Please continue discussion on the mailing list. The Chairs plan to discuss the document status with our AD, please renmind us.
+* Chairs : Please continue discussion on the mailing list. The Chairs plan to discuss the document status with our AD, please renmind us.
 
 ##   8.2 Greg White: L4S Operational Guidance on Coexistence with Classic ECN during L4S Deployment
 
@@ -319,7 +319,7 @@ Documents will be updated.
 * Tim Chown : Measurement of the impact is ongoing in other groups (e.g. ippm). What are your thoughts on general guidance on measuring impact such as responsiveness such as latency?
 * Greg : Experiments were done in the interops and have developed a straw-man test plan for lab testing. Some could be used in field testing. This is an open area for further L4S work as equipment using CE marking and CC, it is important there are good ways of CE-marking; and knowing the CC performs correctlty.
 * Tim : Many games come with a responsiveness number.
-* Greg: We also have interops, and the next will be at cablelabs in september and then at the IETF meeting in Prague.
+* Greg : We also have interops, and the next will be at cablelabs in september and then at the IETF meeting in Prague.
 
 * Chair : Please continue discussion on the mailing list, and please also consider joining the L4S inerop at the next IETF meeting.
 
@@ -347,34 +347,26 @@ The purpose of a WGLC is to gather review and indicate support or not, and we th
 ### 9.1 Dan Wing : Encrypted Transport Protocol Path Explicit Signals
 draft-reddy-tsvwg-explcit-signal-01
 
-    problem statement
-    Network-Layer verses Transport-Layer signal
-    solution overview
-        UDP option for “tag”
-    Design principle
-        encrypted and obfuscated
-    system diagram
+The draft protects and authenticates the signals. We do not discuss key negoatiation in this draft.
 
-Matt Joras: Secure information exchange is presented before but it was not accpeted. BoF was the dispatch feedback.
-TSV accepts
+* Matt Joras : Secure information exchange is presented before, but it was not accepted. This was discussed at dispatch. I do not think it is appropriate to adopt this in TSVWG. The feedback from dispatch was to hold a BoF.
+* Chairs : I can confirm that this topic has been on the Agenda in various forms, including RSVP extensioms, Diffserv and other signaling methods. This topic can lie here, and we do not expect any adoption call today.
+* Dan : We would like to collaborate on a BoF proposal.
 
-Tom Herbert: Already discussed in one to one wireless media header. not architectural correct. contradicts core architecture. Practical issues with middleboxes. IPv6 extension headers has been seen before. Hop by hop processing draft is also not applicable.
-Network signalling from host is * common problem and should find a common generic solution. Maybe an INT area subject.
-
-Chair : QoS aspects fall in this group such as queues. INT are* defines encapsulation.
-
-Christian : This is not a UDP option function which is end to end and supposed to be used by transport and not be intermediries. A new mechanism should be diff and not be part of UDP options.
-
-Tianji Jiang : I like this ide* as we have a real case. Media header IP draft could be used. 3GPP could be mapped to this header.
-
-* C.Heard : agree with earlier comments from Tom and Christian. Oauth applicability. Networking is modifying thiese option in transit ?
-* : no modification of tags in transit.
-
-Kazuho Oku : closed information should have better treatment. Packets should not be dropped in transit. Sender should decide.
-
+Tom Herbert: Already discussed in one to one wireless media header. I do not feel this is architecturally correct. There are potemtial practical issues with middleboxes. IPv6 extension headers has been seen before. Hop by hop processing draft is also not applicable. This signalling from host is a common problem and should find a common generic solution. Maybe this an INT Area subject.
+Gorry : The QoS aspects of this fall in this group (scheduling, configuring queues and signalling). INT area defines encapsulation, and headers. We can debate this here.
+Christian : I agree with the previous spekaer. This is not a UDP option function, which is end-to-end and supposed to be used by transport and not be intermediaries. A new mechanism should be a part of UDP options, and should not be used with encrypted transports.
+Tianji Jiang : I like this idea. We have a real case, that relates to the 3GPP downstream, where the media header could be used. The receiver is a UE and often a destination, there needs to be a way that works withg encrypted traffic this is a potential solution.
+* Mike Heard : I agree with earlier comments from Tom and Christian, which I largely agree with. I see a proposal to use auth and uenc - please keep in mind that these parts might not make this to the final draft. Does the network modify or strip these options in transit ?
+* Dan : There is no modification of the tags in transit, they are end-to-end.
+* Dan : I do not have time to answer all questions, but I would love to hear from more people.
+* Kazuho Oku : This seems like a way to ask the netrwork for better treatment, and that this seems a slipperly sliope to go into. Packets should not be dropped in transit, we should use ECN, the sender should decide.
 Tim Chown : Common requirements for marking such as hop by hop.
+Marco Munizaga: Extension headers seem to be useful. We should focus on better support rather than on a new thing.
+Dan: The waist of the Internet is UDP, NATs partly made it this way. This is why we brought this here. This does move things higher in the stack and this is uncomfortable, but we would dearly love to have a solution to this long-standing problem that we have been attempting to tackle for a few decades.
+Chairs : What is your intention for next meeting?
+Dan : We would like to particiapte in the BoF for refinement. We will also update the draft, starting with comments that we received here.
 
-Marco Munizaga: Extension headers seem to be useful. Should focus on better support rather than a new thing.
+Chairs : Please discuss on the list and join to the next interim if possible. We look forward to seeing people in Prague - where we shall request two sessions.
 
-Chair : intention for next meeting
-* : particiapte in BoF for refinement.
+End of Session 2
