@@ -1,7 +1,6 @@
-# IETF-117 TSVWG Meeting 1
+# IETF-117 TSVWG Meeting Session 1
 
 Tuesday, 25 July 2023, Session IV 1700-1800
-Room Name: Continental 5 
 
 Chairs - Gorry Fairhurst and Marten Seemann
 
@@ -147,3 +146,257 @@ Martin Duke: That was me, and I wanted to see work on this topic in the future.
 Gorry: Please let the WG know your thoughts and try to complete this work. 
 
 End of Session 1
+
+# IETF-117 TSVWG Meeting Session 2
+
+Thursday, 27 July 2023, 9:00 AM PST
+
+Chairs - Altanai B
+
+Scribes - Marco Munizaga and Spencer Dawkins
+
+## 5. Agenda recap and notices 
+
+The chairs began by reviewing the Notewell and talked briefly about the agenda for the TSVWG working group.
+
+Please look at the other individual drafts and discuss on the list.
+
+## 6. Gorry Fairhurst: Careful Convergence of Congestion Control from Retained State
+
+draft-ietf-tsvwg-careful-resume-01
+Nicolas Kuhn, Stephan Emile, Gorry Fairhurst, Christian Huitema
+
+    update
+    State of CR Implementation
+    Simulated performance graphs
+        State of CR Implementation
+        Gain in RTTs vs transfer size
+        Pacing during Reconnaissance
+
+Q Martin Duke: When do you cache the cwnd?
+A Gorry: Our draft talks about this.
+
+Q Matt Mathis : Double window problem?
+A : tbd
+
+Q Kazuho Oku: Why is the Reconnaissance phase needed in QUIC?
+A : To not jump immediately if path changes. Determine its not congested and RTT is same before the jump.
+
+Q Michael Tüxen: How long in the past can this info be?
+A : Control block sharing is simmilar.
+
+    Flow control
+        rwnd/flow credit is set by the receiver
+
+Q Matt Mathis : Tradefoff in design problem such as how to decay information has been an open issue in ML? Should be learned fro own traffic
+A : More work needed.
+
+    Planned next steps IETF118
+        Safe retreat
+
+### 6.2 Markus Ahmed: MP DCCP progress
+
+draft-ietf-tsvwg-multipath-dccp-10
+
+    Draft status
+        review
+        status changes EXP to PS
+        Linux kernel ref implementation
+    Optimized handshaking procedure
+        limitations of MP TCP
+        call flow
+        consequences
+        Question to community
+
+Gorry Fairhurst : I like this approach. Is it simmilar to MP QUIC?
+A : Yes, basic idea is same.
+
+    summary
+        pending issues
+        roadmap
+
+Q chair : How long to resolve pending issues?
+A : ~1.5 months. Nothing in issue tracked yet. Confident in interop test.
+
+    hum call to audience to indicate if its ready.
+        less participation in hum
+        outcome :
+            more revisions needed before Working group can adopt
+            milestone to be updated
+            Will do last call on working group list before next IETF
+
+## 7. SCTP Drafts
+  
+### 7.1 Magnus Westerlund: DTLS in SCTP
+https://datatracker.ietf.org/doc/draft-ietf-tsvwg-dtls-over-sctp-bis/
+
+https://datatracker.ietf.org/doc/draft-westerlund-tsvwg-sctp-crypto-chunk/
+https://datatracker.ietf.org/doc/draft-westerlund-tsvwg-sctp-crypto-dtls/
+
+Magnus Westerlund 
+John Preuß Mattsson 
+Claudio Porfiri
+
+    goals
+        meet 3GPP request
+        DTLS 1.3 - draft-tuexen-tsvwg-rfc6083-bis
+    IPR Declarations
+    Background
+    Liaison statement from 3GPP SA3
+
+Q Hannes Tschofenig : What is 3GPP trying to constrain regarding message size ?
+A : Wait for coming slide
+
+    Requirnments
+    Q Hannes Tschofenig : usecase from Networking euipment manufacturer. More expectation from the specification.
+    A : Individual message could grow rather than theoritical maximum message size. ( check with speaker later )
+
+Q Michael Tuxen : Practical limts needs like Diameter has 24 bit len.
+A : Solution needs to be analysed …
+
+Q Hannes Tschofenig : Rekeying protocols like DTLS and TLS been used in industrial application. Requirnemnts should not be solutions.
+A : it is easy to tear down and restart for handshakes in other usecases but not here. Security considerations in document mention the requirnments such as priotity rekey and priority authentication.
+
+    DTLs over SCTP
+        packet structure
+    Proposal of DTLs in crypto Chunk
+    DTLS implementation requirments
+        Connection IDs
+
+Q Hannes Tschofeing : what does stack refer to ? There is no off-the-shelf stack for features presented.
+A : That supports feature needed based on available such as WolfSSL, MbedTLS. Example presented such as turning off replay protection.
+
+Q Michael Tuxen : Both solution have IPR which have limited use. Ask to ficus on one DTLS version instead of 2 which complicated either.
+A : Already considered. No.
+
+    Rekeying Robustness
+        DTLS in SCTP chunks
+            reordering and losses of packets
+
+Q Michael Tuxen : API exist in document for Socket API.
+A : Agree. Requires tracking.
+
+    conclusion
+        way forward : interim meeting in September
+        Send liaison statement to 3GPP SA3 and RAN3
+
+Q Hannes Tschofeing : SCTP is not only used by 3GPP but other. Get more poeple on board.
+A : Cant find more memebers who are relevant.
+A (chair) : Should be useful for most people.
+
+### 7.2 Michael Tuexen: Zero Checksum for SCTPdraft-ietf-tsvwg-sctp-zero-checksum
+
+    motivation
+        SCTP over DTLS as an error detection method
+    changes
+    implementation status
+    Next steps
+        revision 02 with feedbacks
+        Last call request
+
+Q Gorry Fairhurst : How does this do IPv6 ? handle extra requirnemtns from IPv6. Should be clear such as transport checksum.
+A : Doc says 2 conditions must be fulfilled which includes alternate methods and no middle boxes which ensure non zero checksum. Thus this is not applicable to IPv6.
+
+    Poll: How many people read the document ?
+    Y : 7, N : 24
+
+    Hum for working group Last call
+    Low hum
+
+    Hum for major items to be addreessed ie its not ready
+    No hum. Thus this is in a good position for a new revision.
+### 7.3 Michael Tuexen: SCTP/UDP  6951.bis (5 mins)RFC 6951bis: SCTP/UDP
+draft-tuexen-tsvwg-rfc6951-bis-03
+
+    motivation
+
+## 8. ECN & L4S Drafts
+   
+### 8.1 Jason Livingood: L4S Experimental Deployment
+draft-livingood-low-latency-deployment
+
+    draft update
+    update on experimental deployment such as ECN marking problem
+    deployment in virtual CMTS (vCMTS)
+    preparing test assignments for diagnostics
+    read out test results in IETF118
+    No discussion on WGLC
+
+##   8.2 Greg White: L4S Operational Guidance on Coexistence with Classic ECN during L4S Deployment
+
+draft-ietf-tsvwg-l4sops-05
+
+    scope and status
+        adresses possible rate-imbalance in shared- queue RFC3168 bottlenecks
+        living document to capture experiences for initial L4S deployment
+        draft 05 changes
+
+Q Tim Chown : Measurement and impact is ongoing in other groups. What are your thoughts on general guidance on measuring impact such as responsiveness such as latency?
+A : Experiments were done in interops and have a straw-man test plan for lab test. But could be used in field test. Open area for further L4S deployment in equipment using CE marking and CC.
+A chair : Tools avaiable for testing should be mentioned. Continue on mailing list.
+
+    L4S interops activities
+        invitation to join
+
+## 8.3 Greg White : Non Queue Building (NQB) Per Hop Behavior
+draft-ietf-tsvwg-nqb-19
+
+    status draft 17
+    screen shot of many issues
+    post WGLC comment
+    draft 18 highlights
+    draft 19 highlights
+    status of issues
+    Next steps
+
+Q Gorry : appreciate support for RFC 8325 Mapping Diffserv to IEEE 802.11
+A : _
+
+    Hum if if you have read this or recent version of this daft.
+    Low hum
+
+    Hum if this document is not ready to be received ie not start a working group last call
+    No hum
+    (remote participants could unfortunately not participate in the hums)
+
+Mikhel Abrahamsson : Example configs to implement this in common network are needed.
+Martin Duke : This should not be published (relayed from chat by remote participant, not Martin’s own position)
+
+    To be put on agenda in IETF118
+
+## 9. Individual Drafts
+
+### 9.1 Dan Wing : Encrypted Transport Protocol Path Explicit Signals
+draft-reddy-tsvwg-explcit-signal-01
+
+    problem statement
+    Network-Layer verses Transport-Layer signal
+    solution overview
+        UDP option for “tag”
+    Design principle
+        encrypted and obfuscated
+    system diagram
+
+Matt Joras: Secure information exchange is presented before but it was not accpeted. BoF was the dispatch feedback.
+TSV accepts
+
+Tom Herbert: Already discussed in one to one wireless media header. not architectural correct. contradicts core architecture. Practical issues with middleboxes. IPv6 extension headers has been seen before. Hop by hop processing draft is also not applicable.
+Network signalling from host is a common problem and should find a common generic solution. Maybe an INT area subject.
+
+Chair : QoS aspects fall in this group such as queues. INT area defines encapsulation.
+
+Christian : This is not a UDP option function which is end to end and supposed to be used by transport and not be intermediries. A new mechanism should be diff and not be part of UDP options.
+
+Tianji Jiang : I like this idea as we have a real case. Media header IP draft could be used. 3GPP could be mapped to this header.
+
+Q C.Heard : agree with earlier comments from Tom and Christian. Oauth applicability. Networking is modifying thiese option in transit ?
+A : no modification of tags in transit.
+
+Kazuho Oku : closed information should have better treatment. Packets should not be dropped in transit. Sender should decide.
+
+Tim Chown : Common requirements for marking such as hop by hop.
+
+Marco Munizaga: Extension headers seem to be useful. Should focus on better support rather than a new thing.
+
+Chair : intention for next meeting
+A : particiapte in BoF for refinement.
