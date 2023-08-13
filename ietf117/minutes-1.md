@@ -28,9 +28,9 @@ Errata processing: RFC8325
 Chairs: Milestone updated - see datatracker.
 Notices and Related Drafts 
 Liaison notices, if any:
-* 3GPP Liaison Request - (SCTP & DTLS) Gorry
-* https://datatracker.ietf.org/liaison/1847/
-* GSMA Liaison Request - (Multi-Path DCCP) Gorry
+        * 3GPP Liaison Request - (SCTP & DTLS) Gorry
+        * https://datatracker.ietf.org/liaison/1847/
+        * GSMA Liaison Request - (Multi-Path DCCP) Gorry
 
    Chairs: Announcements and Heads-Up
 
@@ -105,7 +105,7 @@ https://datatracker.ietf.org/meeting/117/materials/slides-117-tsvwg-sessb-412-dp
 
 * Christian Huitema: I think there should a 6th tenet that UDP options should never be attached to UDP encrypted protocols.
         * Gorry: is there already text in the security considerations that warns of the care needed when the datagram is encrypted?
-        * Christian: There was text proposed, but this is not in the current version of the draft. We dio not want tro add information to UDP packets.
+        * Christian: There was text proposed, but this is not in the current version of the draft. We dio not want to add information to UDP packets.
         * Mirja : I agree at a higher level, but does it make it stateful.
     * Christian: No, if any router knows the packet is QUIC then it would then drop packets with UDP Options.
     * Mirja: That's even worse, as a security vulnerability: IF an attacker adds UDP Options that would make sure that somebody drops it. I am unsure how it helps.
@@ -129,21 +129,17 @@ Slide: Basic Three Issues from IETF 116
 * We do not what the working group thinks on Encryption and Authentication, people have commented on the maturity on the list.
 * We need more review on these three topics before the document can move forward.
 
-Gorry: How many people want to work to complete the encryption part of this draft? 
-    Raised: 1, didn't raise: 16
-
-Gorry: Should we complete authentication work as part of this document (if not, we could progress as a separate draft)?
-    Raised: 3, didn't raise: 11
+* Gorry: How many people want to work to complete the encryption part of this draft? 
+    * Raised: 1, didn't raise: 16
+* Gorry: Should we complete authentication work as part of this document (if not, we could progress as a separate draft)?
+    * Raised: 3, didn't raise: 11
     
-Gorry: We are going to continue this on the mailing list, who had objections?
+        * Gorry: We are going to continue this on the mailing list, who had objections?
 
-Martin Duke: Clarifying the question on the encryption topic - it seemed pretty clear that people did not want to do this particular method?
-
-Gorry: I interpret this as we do not have a complete spec for doing this, to make this an interoperable specification. If we complete UDP Options, we could do it later. We only had one person raise their hand.
-
-Martin Duke: That was me, and I wanted to see work on this topic in the future.
-
-Gorry: Please let the WG know your thoughts and try to complete this work. 
+        * Martin Duke: Clarifying the question on the encryption topic - it seemed pretty clear that people did not want to do this particular method?
+        * Gorry: I interpret this as we do not have a complete spec for doing this, to make this an interoperable specification. If we complete UDP Options, we could do it later. We only had one person raise their hand.
+        * Martin Duke: That was me, and I wanted to see work on this topic in the future.
+        * Gorry: Please let the WG know your thoughts and try to complete this work. 
 
 End of Session 1
 
@@ -155,7 +151,7 @@ Chairs - Gorry Fairhurst and Martin Seeman
 
 Scribes - Altanai B
 
-## 5. Agend* recap and Notices 
+## 5. Agenda recap and Notices 
 
 The chairs began by reviewing the Notewell and talked briefly about the agenda for the TSVWG working group.
 
@@ -173,31 +169,31 @@ Nicolas Kuhn, Stephan Emile, Gorry Fairhurst, Christian Huitema
         Gain in RTTs vs Transfer Size
         Pacing during Unvalidated Phase is Needed, permitted during the Reconaisance Phase
 
-* Martin Duke: is the 4xRTT improvement relative to a jump to the BDP or to doing nothing.
-* Gorry: It is relative to slow start, if you jump to the BDP you can win or loose, depending on whether it proved safe to do this.
+        * Martin Duke: is the 4xRTT improvement relative to a jump to the BDP or to doing nothing.
+        * Gorry: It is relative to slow start, if you jump to the BDP you can win or loose, depending on whether it proved safe to do this.
   
-* Martin: There is more work: The cwnd resumption is communication from the sender and communicate to itself. The naive way is to cache the BDP at some random time on the sawtooth, burt this is onlty a part of the problem. When do you cache the cwnd?
-* Gorry: That'a na Elephant in the Room I was avoiding, because it is work to come: Our draft talks about this as the observation phase, this needs more work, please help.
-* Christian: If you look at a random time, you do get a random result. We should add some guidance to this draft. What is done in the PicoQUIC implemenation is that PicoQUIC waits for the slow start to complete, and then the connection to stabilise and then saves the BDP and RTT. That's one method, there may be others.
-* Gorry: Quite so. It also can be very wrong if you measure flight size at the end of the connection, where the packets in flight can be near zero.
+        * Martin: There is more work: The cwnd resumption is communication from the sender and communicate to itself. The naive way is to cache the BDP at some random time on the sawtooth, burt this is onlty a part of the problem. When do you cache the cwnd?
+        * Gorry: That'a na Elephant in the Room I was avoiding, because it is work to come: Our draft talks about this as the observation phase, this needs more work, please help.
+        * Christian: If you look at a random time, you do get a random result. We should add some guidance to this draft. What is done in the PicoQUIC implemenation is that PicoQUIC waits for the slow start to complete, and then the connection to stabilise and then saves the BDP and RTT. That's one method, there may be others.
+        * Gorry: Quite so. It also can be very wrong if you measure flight size at the end of the connection, where the packets in flight can be near zero.
 
-* Matt Mathis : Is this all with QUIC. Did you look at TCP? have you dealt with the receiver window (rwnd) problem?
-* Gorry: Yes, this is important, more later.
-* Kazuho Oku: I understand the validation phase (reconaissance) is needed for TCP. Why is the Reconnaissance Phase needed in QUIC, because there is accurate ACK information?
-* Gorry: The Reconnaissance Phase is primarily (i) to not jump immediately if path changes and (ii) confirm the path is teh same - that needs multiple RTT samples. Determine its not congested and RTT is same before the jump. We should discuss how this is done for QUIC.
+        * Matt Mathis : Is this all with QUIC. Did you look at TCP? have you dealt with the receiver window (rwnd) problem?
+        * Gorry: Yes, this is important, more later.
+        * Kazuho Oku: I understand the validation phase (reconaissance) is needed for TCP. Why is the Reconnaissance Phase needed in QUIC, because there is accurate ACK information?
+        * Gorry: The Reconnaissance Phase is primarily (i) to not jump immediately if path changes and (ii) confirm the path is teh same - that needs multiple RTT samples. Determine its not congested and RTT is same before the jump. We should discuss how this is done for QUIC.
 
-* Michael Tüxen: How long in the past can this information remain valid?
-* Gorry: Yes, another thing to resolve: How long in the past ought you to believe the infomation remains valid. TCP Control Block Sharing has similar concerns, which we hope to have more startiung point.
+        * Michael Tüxen: How long in the past can this information remain valid?
+        * Gorry: Yes, another thing to resolve: How long in the past ought you to believe the infomation remains valid. TCP Control Block Sharing has similar concerns, which we hope to have more startiung point.
 
     Flow Control
         rwnd/flow credit is set by the receiver, and would constrain the benfit, unless we update this.
 
-* Matt Mathis : Receiver window tuning is to control memory usage and is a tradefoff in the design. There are various methods, and QUIC, like TCP, needs to deal witrh this problem.
-* Gorry: Yes.
-* Matt: The problem (earlier) of how to decay information has been an open issue. I'd like to encourage someone to do resaerch into ML strategiesfor this. It should be learned for a connection's own traffic.
-* Gorry : If I understand correctly, the Observation Phase is something that you need to learn in different environments?
-* Matt: Yes, from your own traffic and mix - different cases will have different results.
-* Gorry: Agree, more work needed, please help decide what we should write.
+        * Matt Mathis : Receiver window tuning is to control memory usage and is a tradefoff in the design. There are various methods, and QUIC, like TCP, needs to deal witrh this problem.
+        * Gorry: Yes.
+        * Matt: The problem (earlier) of how to decay information has been an open issue. I'd like to encourage someone to do resaerch into ML strategiesfor this. It should be learned for a connection's own traffic.
+        * Gorry : If I understand correctly, the Observation Phase is something that you need to learn in different environments?
+        * Matt: Yes, from your own traffic and mix - different cases will have different results.
+        * Gorry: Agree, more work needed, please help decide what we should write.
 
     Planned next steps for IETF-118
     Safe Retreat, and share results (possibly in ICCRG).
@@ -214,21 +210,20 @@ draft-ietf-tsvwg-multipath-dccp-10
         Will consider a change from the MP-TCP handhsake, because DCCP is not constrained in the same way.
         Similarly the key exchnage procedure could be updated after review comments.
 
-* Gorry (individual) : I like this approach, it is a good call to do this, if we do not need to do this. Is it simmilar to MP QUIC?
-* Markus : Yes. I think they use a CID, the basic idea is same.
-* Gorry : Please confirm with someone to check if this new part is similar to MP-QUIC.
+        * Gorry (individual) : I like this approach, it is a good call to do this, if we do not need to do this. Is it  simmilar to MP QUIC?
+        * Markus : Yes. I think they use a CID, the basic idea is same.
+        * Gorry : Please confirm with someone to check if this new part is similar to MP-QUIC.
 
-* Chairs : How long do you need to resolve the pending issues?
-* Markus : ~1.5 months. We have PRs to merge, but no pending issues at the moment. We are confident in other aspects from the interop tests that we presented at the last meeting.
+        * Chairs : How long do you need to resolve the pending issues?
+        * Markus : ~1.5 months. We have PRs to merge, but no pending issues at the moment. We are confident in other aspects from the interop tests that we presented at the last meeting.
 
-* Chairs: Please hum if you think this document will be ready to proceed when the current issued are addressed !
-        Ready: Some people.
-        Not Ready (or may have issues): No/few people.
+        * Chairs: Please hum if you think this document will be ready to proceed when the current issued are addressed !
+         *  Ready: Some people;  Not Ready (or may have issues): No/few people.
   
-* Chairs: We do not see opposition to a Working Group Last Call.
+        * Chairs: We do not see opposition to a Working Group Last Call.
 Another revision(s) will be needed, and the 
 milestone is updated to show intended publication as a PS. The Chairs plan to start
-a WG last call on working group list before the next IETF meeting.
+        a WG last call on working group list before the next IETF meeting.
 
 ## 7. SCTP Drafts
   
