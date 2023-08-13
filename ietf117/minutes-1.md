@@ -172,7 +172,7 @@ Nicolas Kuhn, Stephan Emile, Gorry Fairhurst, Christian Huitema
         * Martin Duke: is the 4xRTT improvement relative to a jump to the BDP or to doing nothing.
         * Gorry: It is relative to slow start, if you jump to the BDP you can win or loose, depending on whether it proved safe to do this.
   
-        * Martin: There is more work: The cwnd resumption is communication from the sender and communicate to itself. The naive way is to cache the BDP at some random time on the sawtooth, burt this is onlty a part of the problem. When do you cache the cwnd?
+        * Martin: There is more work: The cwnd resumption is communication from the sender and communicate to itself. The naive way is to cache the BDP at some random time on the sawtooth, but this is onlty a part of the problem. When do you cache the cwnd?
         * Gorry: That'a na Elephant in the Room I was avoiding, because it is work to come: Our draft talks about this as the observation phase, this needs more work, please help.
         * Christian: If you look at a random time, you do get a random result. We should add some guidance to this draft. What is done in the PicoQUIC implemenation is that PicoQUIC waits for the slow start to complete, and then the connection to stabilise and then saves the BDP and RTT. That's one method, there may be others.
         * Gorry: Quite so. It also can be very wrong if you measure flight size at the end of the connection, where the packets in flight can be near zero.
