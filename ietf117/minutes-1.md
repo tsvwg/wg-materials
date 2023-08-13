@@ -65,8 +65,8 @@ draft-kaippallimalil-tsvwg-media-hdr-wireless
 * Matt Mathis: There seems to be a huge opportunity and there are lots of allegators. Good luck.
 
 * Magnus Westerlund: Another option exists when yoy are addressing a single node on the path. You could explicitly talk to this. 
-* John: I think you refer to using the control plane to signal data for the user plane. I think the preference is to use the user plane.
-* Magnus: I think we could use the user plane by addressing the node and linkage it to the data, using a method similar to that being proposed in the SADCDN. This might be a suitable solution also for this?
+        * John: I think you refer to using the control plane to signal data for the user plane. I think the preference is to use the user plane.
+        * Magnus: I think we could use the user plane by addressing the node and linkage it to the data, using a method similar to that being proposed in the SADCDN. This might be a suitable solution also for this?
 
 * Gorry: How many have read this draft (or a recent version)?
     * Have read: 14 hands raised.
@@ -98,7 +98,7 @@ https://datatracker.ietf.org/meeting/117/materials/slides-117-tsvwg-sessb-412-dp
 
 * Gorry presented a list of current drafts that rely on UDP options, and the list is growing...
 
-* Martin Duke (AD): There is a class of UDP options that seem like: let the application take some things from the encrypted payload, and put it in the header for other to read and perform some optimizations for performance. We should think hard about that and bring some skeptics before we adopt it. Just because the room thinks this is a valid use, this might not survive last call. We need to think hard about this, and bring in some skeptics to discuss these tradeoffs. This is a general comment.
+        * Martin Duke (AD): There is a class of UDP options that seem like: let the application take some things from the encrypted payload, and put it in the header for other to read and perform some optimizations for performance. We should think hard about that and bring some skeptics before we adopt it. Just because the room thinks this is a valid use, this might not survive last call. We need to think hard about this, and bring in some skeptics to discuss these tradeoffs. This is a general comment.
 
 * Mike Heard: presenting Joe's proposed five basic tenents for UDP options
     * Agree with all except E. Incomplete frameworks could lead to issues. Worthwhile to ask the WF to reply to Joe's message and see if we're on the right track.
@@ -266,23 +266,23 @@ IPR declarations for various options.
 The conclusion is we need to find a way forward: We have talked to the chairs and expect we could make progress using a WG interim meeting on 19th September 2023 (16:00 CET). Before that, the Chairs plan to send a liaison statement to 3GPP SA3 and RAN3 toi inform about this meeting and ask for clarification.
 
 
-* Hannes  : SCTP is not only used by 3GPP, but also be good to get other uses on these topics. We need to get more people on board.
+        * Hannes  : SCTP is not only used by 3GPP, but also be good to get other uses on these topics. We need to get more people on board.
  
-Chairs: We plan to schedule the interim that was mentioned, and this would be a good time to look at the various aspects: including open source usages, and to answer this 3GPP liasion. This would be an ideal time for other people to come and help talk about other uses and needs. We could finally end up with 1,2, or 3 documents that meet the needs of users. Please think and prepare for that meeting and think about whether TLS 1.2 is still needed. By the Pargue IETF, we would like to update the milestone.
+* Chairs: We plan to schedule the interim that was mentioned, and this would be a good time to look at the various aspects: including open source usages, and to answer this 3GPP liasion. This would be an ideal time for other people to come and help talk about other uses and needs. We could finally end up with 1,2, or 3 documents that meet the needs of users. Please think and prepare for that meeting and think about whether TLS 1.2 is still needed. By the Pargue IETF, we would like to update the milestone.
   
 ### 7.2 Michael Tuexen: Zero Checksum for SCTPdraft-ietf-tsvwg-sctp-zero-checksum
 
-* Michael : This document seems, to the authors, to be ready for last call. 
-* Gorry (individual) : How does this relate to IPv6 requirements? There are additional requirnemtns from IPv6 relating to UDP checksums and these ought to apply. We should be clear about the usage of the transport checksum with IPv6.
-* Michael : The draft says two conditions must be fulfilled which includes alternate methods and no middle boxes which ensure non zero checksum. Thus, this is not applicable to IPv6. I can add a sentence.
+        * Michael : This document seems, to the authors, to be ready for last call. 
+        * Gorry (individual) : How does this relate to IPv6 requirements? There are additional requirnemtns from IPv6 relating to UDP checksums and these ought to apply. We should be clear about the usage of the transport checksum with IPv6.
+        * Michael : The draft says two conditions must be fulfilled which includes alternate methods and no middle boxes which ensure non zero checksum. Thus, this is not applicable to IPv6. I can add a sentence.
 
-* Chairs : How many people read this document (rev-01) or (rev-02) ?
-           Have read : 7, Have not Read : 24
+        * Chairs : How many people read this document (rev-01) or (rev-02) ?
+           * Have read : 7, Have not Read : 24
 
-* Chairs : Some people have read, and we have a set of reviewers.
+        * Chairs : Some people have read, and we have a set of reviewers.
   
-* Chairs : Please now hum if you think the next revision is ready for a Working Group Last Call.
-           Support and ready: Some, Would not support WGLC (or major items to address): few/none.
+        * Chairs : Please now hum if you think the next revision is ready for a Working Group Last Call.
+           * Support and ready: Some, Would not support WGLC (or major items to address): few/none.
 
 Please read the document and comment on list. The chairs think this is in a good position for a new revision, and we plan to start a WGLC before the next IETF meeting.
   
@@ -345,23 +345,22 @@ draft-reddy-tsvwg-explcit-signal-01
 The draft protects and authenticates the signals. We do not discuss key negoatiation in this draft.
 
 * Matt Joras : Secure information exchange is presented before, but it was not accepted. This was discussed at dispatch. I do not think it is appropriate to adopt this in TSVWG. The feedback from dispatch was to hold a BoF.
-* Chairs : I can confirm that this topic has been on the Agenda in various forms, including RSVP extensioms, Diffserv and other signaling methods. This topic can lie here, and we do not expect any adoption call today.
-* Dan : We would like to collaborate on a BoF proposal.
+        * Chairs : We can confirm that this topic has been on the Agenda in various forms, including RSVP extensioms, Diffserv and other signaling methods. This topic can lie here, and we do not expect any adoption call today.
+        * Dan : We would like to collaborate on a BoF proposal.
+        * Tom Herbert: Already discussed in one to one wireless media header. I do not feel this is architecturally correct. There are potemtial practical issues with middleboxes. IPv6 extension headers has been seen before. Hop by hop processing draft is also not applicable. This signalling from host is a common problem and should find a common generic solution. Maybe this an INT Area subject.
+        * Gorry : The QoS aspects of this fall in this group (scheduling, configuring queues and signalling). INT area defines encapsulation, and headers. We can debate this here.
+        * Christian : I agree with the previous spekaer. This is not a UDP option function, which is end-to-end and supposed to be used by transport and not be intermediaries. A new mechanism should be a part of UDP options, and should not be used with encrypted transports.
+        * Tianji Jiang : I like this idea. We have a real case, that relates to the 3GPP downstream, where the media header could be used. The receiver is a UE and often a destination, there needs to be a way that works withg encrypted traffic this is a potential solution.
+        * Mike Heard : I agree with earlier comments from Tom and Christian, which I largely agree with. I see a proposal to use auth and uenc - please keep in mind that these parts might not make this to the final draft. Does the network modify or strip these options in transit ?
+        * Dan : There is no modification of the tags in transit, they are end-to-end.
+        * Dan : I do not have time to answer all questions, but I would love to hear from more people.
+        * Kazuho Oku : This seems like a way to ask the netrwork for better treatment, and that this seems a slipperly sliope to go into. Packets should not be dropped in transit, we should use ECN, the sender should decide.
+        * Tim Chown : Common requirements for marking such as hop by hop.
+        * Marco Munizaga: Extension headers seem to be useful. We should focus on better support rather than on a new thing.
+        * Dan: The waist of the Internet is UDP, NATs partly made it this way. This is why we brought this here. This does move things higher in the stack and this is uncomfortable, but we would dearly love to have a solution to this long-standing problem that we have been attempting to tackle for a few decades.
+        * Chairs : What is your intention for next meeting?
+        * Dan : We would like to particiapte in the BoF for refinement. We will also update the draft, starting with comments that we received here.
 
-Tom Herbert: Already discussed in one to one wireless media header. I do not feel this is architecturally correct. There are potemtial practical issues with middleboxes. IPv6 extension headers has been seen before. Hop by hop processing draft is also not applicable. This signalling from host is a common problem and should find a common generic solution. Maybe this an INT Area subject.
-Gorry : The QoS aspects of this fall in this group (scheduling, configuring queues and signalling). INT area defines encapsulation, and headers. We can debate this here.
-Christian : I agree with the previous spekaer. This is not a UDP option function, which is end-to-end and supposed to be used by transport and not be intermediaries. A new mechanism should be a part of UDP options, and should not be used with encrypted transports.
-Tianji Jiang : I like this idea. We have a real case, that relates to the 3GPP downstream, where the media header could be used. The receiver is a UE and often a destination, there needs to be a way that works withg encrypted traffic this is a potential solution.
-* Mike Heard : I agree with earlier comments from Tom and Christian, which I largely agree with. I see a proposal to use auth and uenc - please keep in mind that these parts might not make this to the final draft. Does the network modify or strip these options in transit ?
-* Dan : There is no modification of the tags in transit, they are end-to-end.
-* Dan : I do not have time to answer all questions, but I would love to hear from more people.
-* Kazuho Oku : This seems like a way to ask the netrwork for better treatment, and that this seems a slipperly sliope to go into. Packets should not be dropped in transit, we should use ECN, the sender should decide.
-Tim Chown : Common requirements for marking such as hop by hop.
-Marco Munizaga: Extension headers seem to be useful. We should focus on better support rather than on a new thing.
-Dan: The waist of the Internet is UDP, NATs partly made it this way. This is why we brought this here. This does move things higher in the stack and this is uncomfortable, but we would dearly love to have a solution to this long-standing problem that we have been attempting to tackle for a few decades.
-Chairs : What is your intention for next meeting?
-Dan : We would like to particiapte in the BoF for refinement. We will also update the draft, starting with comments that we received here.
-
-Chairs : Please discuss on the list and join to the next interim if possible. We look forward to seeing people in Prague - where we shall request two sessions.
+        * Chairs : Please discuss on the list and join to the next interim if possible. We look forward to seeing people in Prague - where we shall request two sessions.
 
 End of Session 2
